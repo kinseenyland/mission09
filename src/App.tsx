@@ -5,7 +5,6 @@ import teamsData from './CollegeBasketballTeams.json';
 
 // Created interface for all of the attributes I want to display
 interface TeamProps {
-  tid: number;
   school: string;
   name: string;
   city: string;
@@ -27,7 +26,7 @@ class Team extends React.Component<TeamProps> {
 
     return (
       <div className="card">
-        <div className="card-body">
+        <div className="card-body col-lg-6 col-lg-6">
           <h2 className="card-title">{oneTeam.school}</h2>
           <h3 className="card-subtitle mb-2 text-muted">
             Mascot: {oneTeam.name}
@@ -35,6 +34,7 @@ class Team extends React.Component<TeamProps> {
           <h3 className="card-text">
             Location: {oneTeam.city}, {oneTeam.state}
           </h3>
+          <br></br>
         </div>
       </div>
     );
@@ -46,12 +46,14 @@ function TeamList() {
   return (
     <div className="container mt-4">
       <div className="row">
-        {teams.map((team) => (
-          // Wrap each team in a column div
-          <div key={`${team.tid}`} className="col-sm-12 col-md-6 col-lg-4 mb-4">
-            <Team {...team} />
-          </div>
-        ))}
+        <div>
+          {teams.map((team) => (
+            // Wrap each team in a column div
+            <div className="col-sm-12 col-md-6 col-lg-4 mb-4">
+              <Team {...team} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
