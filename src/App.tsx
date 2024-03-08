@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
+//imported the json file to extract the data from it to display it
 import teamsData from './CollegeBasketballTeams.json';
 
+// Created interface for all of the attributes I want to display
 interface TeamProps {
   tid: number;
   school: string;
@@ -10,12 +12,15 @@ interface TeamProps {
   state: string;
 }
 
+//set the variable teams to the data from the json file
 const teams = teamsData.teams;
 
+// made the welcome function to display the heading of what the website is
 function Welcome() {
   return <h1>College Basketball Teams</h1>;
 }
 
+//Created a Team class to show how we want the data to be printed out
 class Team extends React.Component<TeamProps> {
   render() {
     const oneTeam = this.props;
@@ -36,6 +41,7 @@ class Team extends React.Component<TeamProps> {
   }
 }
 
+// Created the TeamList function to get all of the data printed out
 function TeamList() {
   return (
     <div className="container mt-4">
@@ -51,6 +57,7 @@ function TeamList() {
   );
 }
 
+// included welcome function and teamlist function to display on page
 function App() {
   return (
     <div className="App">
